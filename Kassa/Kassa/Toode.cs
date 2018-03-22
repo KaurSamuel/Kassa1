@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kassa
 {
-    class Program
+    class Toode
     {
-        static void Main(string[] args)
-        {
-        }
+        public string Name { get; set; }
+        public decimal Hind { get; set; }
+        public int Kogus { get; set; }
+
     }
 }
