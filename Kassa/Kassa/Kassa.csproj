@@ -54,7 +54,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Help Window.xaml.cs">
+      <DependentUpon>Help Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lisa Toode.xaml.cs">
+      <DependentUpon>Lisa Toode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Toode.cs" />
+    <Page Include="Help Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lisa Toode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
