@@ -27,10 +27,10 @@ namespace Kassa
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             // this is getting ridiculous
-            System.IO.File.AppendAllText("Tooted.txt", "\n"+ TootenimiTB.Text
+            System.IO.File.AppendAllText("../../Tooted.txt", "\n"+ TootenimiTB.Text
                 + " " + TootehindTB.Text + " " + TootekogusTB.Text);
             MessageBox.Show(" Toode lisatud (Ära unusta refresh-ida)");
-            
+            return;
             
         }
     }

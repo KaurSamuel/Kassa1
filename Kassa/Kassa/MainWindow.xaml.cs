@@ -26,7 +26,7 @@ namespace Kassa
         {
             InitializeComponent();
             List<Toode> failist_tooted = new List<Toode>();
-            foreach (var line in System.IO.File.ReadAllLines("Tooted.txt"))
+            foreach (var line in System.IO.File.ReadAllLines("../../Tooted.txt"))
             {
                 // ma tahan surra
                 failist_tooted.Add(new Toode() { Name = line.Split(' ')[0],
@@ -39,7 +39,7 @@ namespace Kassa
         public void Refresh_tooted()
         {
             List<Toode> failist_tooted = new List<Toode>();
-            foreach (var line in System.IO.File.ReadAllLines("Tooted.txt"))
+            foreach (var line in System.IO.File.ReadAllLines("../../Tooted.txt"))
             {
                 // I deserve to die
                 failist_tooted.Add(new Toode()
@@ -118,5 +118,36 @@ namespace Kassa
             
         }
         #endregion
+        // isegi jumal ei tea mida ma siin tegin
+        public string Removing_productname;
+        public string Removing_productprice;
+        public string Removing_productquantity;
+        public string Removing_product;
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            
+            if (TootedListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Palun valige toode mida eemaldada");
+            }
+            else
+            {
+                foreach (var item in TootedListBox.SelectedItems)
+                {
+                    Removing_productname = (item as Toode).Name;
+                    Removing_productprice = (item as Toode).Hind.ToString();
+                    Removing_productquantity = (item as Toode).Kogus.ToString();
+                    Removing_product = Removing_productname +" "+ 
+                        Removing_productprice +" "+ Removing_productquantity;
+
+                }
+                string[] linesar = System.IO.File.ReadAllLines("../../Tooted.txt");
+                List<string> linesL = new List<string>(linesar.ToList());
+                linesL.Remove(Removing_product);
+                System.IO.File.WriteAllLines("../../Tooted.txt", linesL);
+                MessageBox.Show("Toode eemaldatud Ärge unustage refreshida");
+
+            }
+        }
     }
 }
