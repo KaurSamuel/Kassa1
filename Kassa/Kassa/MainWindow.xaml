@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kassa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="458.039" Width="650">
+        Title="MainWindow" Height="458.039" Width="543">
     <Grid Name="grid1" Margin="10">
-        <ListBox Name="Ostukorv" HorizontalAlignment="Left" Width="220" Margin="370,228,0,5">
+        <ListBox Name="Ostukorv" HorizontalAlignment="Left" Width="221" Margin="243,226,0,7">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0.2">
@@ -23,38 +23,33 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="320" Margin="0,45,0,5">
+        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="219" Margin="0,31,0,5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0.2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Name="toote_nimi" Grid.Column="0" Text="{Binding Name}"/>
                         <TextBlock Grid.Column="1" Text="{Binding Hind}"/>
-                        <TextBlock Grid.Column="2" Text="{Binding Kogus}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Left" Margin="0,29,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="102,29,0,0" TextWrapping="Wrap" Text="Hind(€)" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="195,29,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top"/>
-        <Button Content="Lisa Ostukorvi" HorizontalAlignment="Left" Margin="440,60,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_1"/>
-        <TextBlock Name="mitutootet" HorizontalAlignment="Left" Margin="480,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button Name="vähendakogust" Content="&lt;" HorizontalAlignment="Left" Margin="445,95,0,0" VerticalAlignment="Top" Width="15" Click="vähendakogust_Click"/>
-        <Button Name="suurendakogust" Content="&gt;" HorizontalAlignment="Left" Margin="505,95,0,0" VerticalAlignment="Top" Width="15" Click="suurendakogust_Click"/>
-        <Button Content="&lt;&lt;" HorizontalAlignment="Left" Margin="416,95,0,0" VerticalAlignment="Top" Width="24" Click="Button_Click"/>
-        <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="525,95,0,0" VerticalAlignment="Top" Width="24" Click="Button_Click_2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="370,205,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="450,205,0,0" TextWrapping="Wrap" Text="Hind(€)" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="516,205,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top"/>
-        <Button Content="Eemalda ostukorvist" HorizontalAlignment="Left" Margin="426,135,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_3"/>
-        <Button Content="Refresh" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
-        <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="90,9,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
-        <Button Content="Eemalda toode" HorizontalAlignment="Left" Margin="170,9,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_6"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,10,0,0" TextWrapping="Wrap" Text="Hind(€)" VerticalAlignment="Top"/>
+        <Button Content="Lisa Ostukorvi" HorizontalAlignment="Left" Margin="243,140,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="243,205,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="329,205,0,0" TextWrapping="Wrap" Text="Hind(€)" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,205,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top"/>
+        <Button Content="Eemalda ostukorvist" HorizontalAlignment="Left" Margin="243,165,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_3"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="243,31,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_4" Height="30"/>
+        <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="243,68,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_5"/>
+        <Button Content="Eemalda toode" HorizontalAlignment="Left" Margin="243,93,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_6"/>
+        <TextBox Name="KogusTB" HorizontalAlignment="Left" Height="23" Margin="416,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="1" PreviewTextInput="KogusTB_PreviewTextInput"/>
+        <TextBlock HorizontalAlignment="Left" Margin="416,115,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="43"/>
+        <Button Content="Osta" HorizontalAlignment="Left" Margin="380,165,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click"/>
 
     </Grid>
 </Window>

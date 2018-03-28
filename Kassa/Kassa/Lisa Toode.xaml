@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kassa"
         mc:Ignorable="d"
-        Title="Lisa_Toode" Height="232" Width="264">
+        Title="Lisa_Toode" Height="225.716" Width="252.648">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Toote nimi " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="Toote hind " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,140,0,0" TextWrapping="Wrap" Text="Toote kogus " VerticalAlignment="Top"/>
-        <TextBox Name="TootekogusTB" HorizontalAlignment="Left" Height="23" Margin="110,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TootenimiTB" HorizontalAlignment="Left" Height="23" Margin="110,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TootehindTB" HorizontalAlignment="Left" Height="23" Margin="110,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="220" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,59,0,0" TextWrapping="Wrap" Text="Toote nimi " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,107,0,0" TextWrapping="Wrap" Text="Toote hind " VerticalAlignment="Top"/>
+        <TextBox Name="TootenimiTB" HorizontalAlignment="Left" Height="23" Margin="110,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="TootehindTB" HorizontalAlignment="Left" Height="23" Margin="110,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="220" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="NB! Komaga väärtused peavad olema tähistatud punktiga (.)" VerticalAlignment="Top" Width="240"/>
 
     </Grid>
 </Window>

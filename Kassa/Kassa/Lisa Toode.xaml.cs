@@ -28,8 +28,7 @@ namespace Kassa
         {
             // this is getting ridiculous
             System.IO.File.AppendAllText("../../Tooted.txt", "\n"+ TootenimiTB.Text
-                + " " + TootehindTB.Text + " " + TootekogusTB.Text);
-            MessageBox.Show(" Toode lisatud (Ära unusta refresh-ida)");
+                + " " + TootehindTB.Text);
             return;
             
         }

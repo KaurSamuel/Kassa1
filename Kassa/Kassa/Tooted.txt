@@ -1,2 +1,1 @@
-Salat 2 5
-liha 1 2
+Test_toode 1

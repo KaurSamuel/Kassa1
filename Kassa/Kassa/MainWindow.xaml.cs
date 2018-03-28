@@ -28,10 +28,14 @@ namespace Kassa
             List<Toode> failist_tooted = new List<Toode>();
             foreach (var line in System.IO.File.ReadAllLines("../../Tooted.txt"))
             {
-                // ma tahan surra
-                failist_tooted.Add(new Toode() { Name = line.Split(' ')[0],
-                    Hind = decimal.Parse(line.Split(' ')[1]),
-                    Kogus = int.Parse(line.Split(' ')[2]) });
+                if (line != ""&& line!=" ")
+                {
+                    failist_tooted.Add(new Toode()
+                    {
+                        Name = line.Split(' ')[0],
+                        Hind = decimal.Parse(line.Split(' ')[1]),
+                    });
+                }
             }                   
             TootedListBox.ItemsSource = failist_tooted;
            
@@ -41,91 +45,46 @@ namespace Kassa
             List<Toode> failist_tooted = new List<Toode>();
             foreach (var line in System.IO.File.ReadAllLines("../../Tooted.txt"))
             {
-                // I deserve to die
-                failist_tooted.Add(new Toode()
+                if (line !=""&& line !=" ")
                 {
-                    Name = line.Split(' ')[0],
-                    Hind = decimal.Parse(line.Split(' ')[1]),
-                    Kogus = int.Parse(line.Split(' ')[2])
-                });
+                    failist_tooted.Add(new Toode()
+                    {
+                        Name = line.Split(' ')[0],
+                        Hind = decimal.Parse(line.Split(' ')[1]),
+                    });
+                }
             }
             TootedListBox.ItemsSource = failist_tooted;
         }
 
         //-----------------------------------------------------
         #region buttons 
-
-
-        private void vähendakogust_Click(object sender, RoutedEventArgs e)
-        {
-            Tootekogusint -=1;
-            string Tootekogus = Tootekogusint.ToString();
-            mitutootet.Text = Tootekogus;
-        }
-
-        private void suurendakogust_Click(object sender, RoutedEventArgs e)
-        {
-            Tootekogusint +=1;
-            string Tootekogus = Tootekogusint.ToString();
-            mitutootet.Text = Tootekogus;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Tootekogusint -= 5;
-            string Tootekogus = Tootekogusint.ToString();
-            mitutootet.Text = Tootekogus;
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Tootekogusint += 5;
-            string Tootekogus = Tootekogusint.ToString();
-            mitutootet.Text = Tootekogus;
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (TootedListBox.SelectedItem == null)
-            {
-                MessageBox.Show("Palun valige toode");
-            }
-            else if (Ostukorv.Items.Contains(TootedListBox.SelectedItem))
-            {
-                MessageBox.Show("See toode on juba ostukorvis");
-            }
-            else
-                Ostukorv.Items.Add(TootedListBox.SelectedItem); 
+            Lisa_ostukorvi();
         }
-
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             Ostukorv.Items.Remove(Ostukorv.SelectedItem);
             
         }
-        
-
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             Refresh_tooted();
         }
-
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             Lisa_Toode win2 = new Lisa_Toode();
             win2.Show();
-            
         }
         #endregion
-        // isegi jumal ei tea mida ma siin tegin
         public string Removing_productname;
         public string Removing_productprice;
         public string Removing_productquantity;
         public string Removing_product;
+        // isegi jumal ei tea mida ma siin tegin
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            
             if (TootedListBox.SelectedItem == null)
             {
                 MessageBox.Show("Palun valige toode mida eemaldada");
@@ -136,18 +95,53 @@ namespace Kassa
                 {
                     Removing_productname = (item as Toode).Name;
                     Removing_productprice = (item as Toode).Hind.ToString();
-                    Removing_productquantity = (item as Toode).Kogus.ToString();
                     Removing_product = Removing_productname +" "+ 
-                        Removing_productprice +" "+ Removing_productquantity;
+                        Removing_productprice;
 
                 }
                 string[] linesar = System.IO.File.ReadAllLines("../../Tooted.txt");
                 List<string> linesL = new List<string>(linesar.ToList());
                 linesL.Remove(Removing_product);
                 System.IO.File.WriteAllLines("../../Tooted.txt", linesL);
-                MessageBox.Show("Toode eemaldatud Ärge unustage refreshida");
-
+                Refresh_tooted();
             }
         }
+        public void Lisa_ostukorvi()
+        {
+            if (TootedListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Palun valige toode");
+            }
+            else if (Ostukorv.Items.Contains(TootedListBox.SelectedItem))
+            {
+                MessageBox.Show("See toode on juba ostukorvis");
+            }
+            else
+            {
+                var lisatav_toode = TootedListBox.SelectedItem as Toode;
+                lisatav_toode.Kogus = int.Parse(KogusTB.Text);
+                Ostukorv.Items.Add(lisatav_toode);
+            }
+        }
+
+        private void KogusTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+        private static bool IsTextAllowed(string text)
+        {
+            Regex regex = new Regex("[^0-9.-]+");
+            return !regex.IsMatch(text);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            decimal base_hind = 0;
+            foreach (Toode item in Ostukorv.Items)
+            {
+                base_hind += item.Hind*item.Kogus;
+            }
+            MessageBox.Show("Ostukorv läheb maksma: "+base_hind.ToString()+ "€");
+        }   
     }
 }
