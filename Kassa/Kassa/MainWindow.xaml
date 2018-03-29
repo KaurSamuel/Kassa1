@@ -47,7 +47,7 @@
         <Button Content="Refresh" HorizontalAlignment="Left" Margin="243,31,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_4" Height="30"/>
         <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="243,68,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_5"/>
         <Button Content="Eemalda toode" HorizontalAlignment="Left" Margin="243,93,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_6"/>
-        <TextBox Name="KogusTB" HorizontalAlignment="Left" Height="23" Margin="416,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="1" PreviewTextInput="KogusTB_PreviewTextInput"/>
+        <TextBox Name="KogusTB" HorizontalAlignment="Left" Height="23" Margin="416,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="1" PreviewTextInput="KogusTB_PreviewTextInput" />
         <TextBlock HorizontalAlignment="Left" Margin="416,115,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="43"/>
         <Button Content="Osta" HorizontalAlignment="Left" Margin="380,165,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click"/>
 

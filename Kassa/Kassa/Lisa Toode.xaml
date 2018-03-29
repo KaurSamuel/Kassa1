@@ -10,7 +10,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,59,0,0" TextWrapping="Wrap" Text="Toote nimi " VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,107,0,0" TextWrapping="Wrap" Text="Toote hind " VerticalAlignment="Top"/>
         <TextBox Name="TootenimiTB" HorizontalAlignment="Left" Height="23" Margin="110,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TootehindTB" HorizontalAlignment="Left" Height="23" Margin="110,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="TootehindTB" HorizontalAlignment="Left" Height="23" Margin="110,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="TootehindTB_PreviewTextInput"/>
         <Button Content="Lisa toode" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="220" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"><Run Text="NB! Komaga väärtused peavad olema tähistatud punktiga (.)"/><Run Text=" vahed t"/><Run Text="ähistage"/><Run Text=": _"/></TextBlock>
 

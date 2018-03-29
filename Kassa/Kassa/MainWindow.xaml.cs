@@ -25,6 +25,7 @@ namespace Kassa
         public MainWindow()
         {
             InitializeComponent();
+            // note to self: järgmine kord salvesta andmed .xlsx faili kuna see siin on lihtsalt piin
             List<Toode> failist_tooted = new List<Toode>();
             foreach (var line in System.IO.File.ReadAllLines("../../Tooted.txt"))
             {
@@ -142,6 +143,7 @@ namespace Kassa
                 base_hind += item.Hind*item.Kogus;
             }
             MessageBox.Show("Ostukorv läheb maksma: "+base_hind.ToString()+ "€");
-        }   
+        }
+
     }
 }

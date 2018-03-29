@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Kassa
 {
@@ -26,11 +27,23 @@ namespace Kassa
         }     
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            // this is getting ridiculous
+            
             System.IO.File.AppendAllText("../../Tooted.txt", "\n"+ TootenimiTB.Text
                 + " " + TootehindTB.Text);
+            MessageBox.Show("Toode lisatud ärge unustage refreshida");
             return;
             
         }
+
+        private void TootehindTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+        private static bool IsTextAllowed(string text)
+        {
+            Regex regex = new Regex("[^0-9.-]+");
+            return !regex.IsMatch(text);
+        }
     }
+    
 }
